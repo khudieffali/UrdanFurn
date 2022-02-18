@@ -1,0 +1,159 @@
+﻿@model Entities.Product
+
+@{
+    ViewData["Title"] = "Məhsul Yarat";
+}
+<style>
+    .label-photo {
+        background: gold;
+        padding: 10px 20px;
+        color: #fff;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    a {
+        text-decoration: none;
+        margin: 15px 0;
+    }
+</style>
+
+<h1>Yeni Məhsul</h1>
+
+<h4>Məhsul</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-9">
+        <form method="post" asp-action="Create" enctype="multipart/form-data" id="CreateForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label"></label>
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InStock" class="control-label"></label>
+                <input asp-for="InStock" class="form-control" />
+                <span asp-validation-for="InStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="pictureInput" class="control-label label-photo">Select Photo (<span>0</span>) </label>
+                <br />
+                <input class="d-none" id="pictureInput" type="file" multiple name="PictureUrlss" />
+                <div id="pictureList" class="d-flex flex-wrap">
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SKU" class="control-label"></label>
+                <input asp-for="SKU" class="form-control" />
+                <span asp-validation-for="SKU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Barcode" class="control-label"></label>
+                <input asp-for="Barcode" class="form-control" />
+                <span asp-validation-for="Barcode" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSlider" /> @Html.DisplayNameFor(model => model.IsSlider)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control">
+                    <option value=0 disabled selected>...Kateqoriya Seçin...</option>
+                    @foreach (var item in ViewBag.catList as List<Entities.Category>)
+                    {
+                        <option value="@item.Id">@item.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Yarat" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Siyahıya qayıt</a>
+</div>
+<div  class="hiddenPicture col-lg-3 col-sm-6 d-none">
+    <img class="img-fluid img-thumbnail" src="/downloads/04049637-79f8-4deb-b5ab-dd2ebc40f174123652965_100505961875255_1192301689523879993_n.jpg" />
+    <br />
+    <input class="thumbRadio" type="radio" name="thumbnailPictureId" /> Is Cover?
+    <br />
+    <button class="btn btn-danger btn-remove" myFile="" type="button" onclick=removePicture(this)>
+        Remove Picture
+    </button>
+
+</div>
+
+@section Script{
+<script>
+    let pictureList=[];
+           $("#pictureInput").change(function(){
+               pictureList.push(...this.files);
+               const pictures=[...this.files];
+               for(let i=0;i<pictures.length;i++){
+                   let pic=pictures[i]
+                    const pictureItem=$(".hiddenPicture").clone(); 
+                   pictureItem.removeClass("hiddenPicture")
+                   pictureItem.addClass("itemPicture")
+                   const reader=new FileReader();
+                   reader.onload=function(res){
+                   pictureItem.find("img").attr("src",res.target.result)
+               }  
+               reader.readAsDataURL(pic);
+               pictureItem.find(".btn-remove").attr("myFile",pic.name)
+               pictureItem.find(".thumbRadio").val(i)
+                pictureItem.removeClass("d-none")
+               $("#pictureList").append(pictureItem)
+               }
+               $(".label-photo span").text(pictureList.length)
+            })
+            $("#CreateForm").submit(function(e){
+                e.preventDefault
+                var form_data=new FormData(this);
+                for(let pic of pictureList){
+                    form_data.append("PictureUrlss",pic)
+                }   
+                $.ajax({
+                    url:"/AlzzoniAdmin/Products/Create",
+                    data:form_data,
+                    dataType:'json',
+                    processData:false,
+                    contentType:false,
+                    success:function(){
+
+                    }
+                })
+            })
+        function removePicture(element){
+           let pictureName=$(element).attr("myFile")
+           pictureList=pictureList.filter(c=>c.name!=pictureName);
+             $(".label-photo span").text(pictureList.length)
+             $("#pictureInput").val("")
+            $(element).parents(".itemPicture").remove();
+
+         }
+</script>
+}
+

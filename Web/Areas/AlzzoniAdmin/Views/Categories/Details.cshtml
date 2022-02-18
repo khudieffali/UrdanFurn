@@ -1,0 +1,30 @@
+﻿@model Entities.Category
+
+@{
+    ViewData["Title"] = "Detallar";
+    ViewData["Link"] = "Kateqoriyalar";
+}
+
+<h1>Detallar</h1>
+
+<div>
+    <h4>Kateqoriya</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 mb-3">
+            @Html.DisplayNameFor(model=> model.CategoryName)
+        </dt>
+        <dt class="col-sm-10 mb-3">
+            @Html.DisplayFor(model=>model.CategoryName)
+        </dt>
+        <dt class="col-sm-2 mb-3">
+            @Html.DisplayNameFor(model=> model.IconUrl)
+        </dt>
+        <dt class="col-sm-10 mb-3">
+            <i class="@Html.DisplayFor(model=>model.IconUrl) fa-2x"></i>
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Siyahıya Qayıt</a>
+</div>

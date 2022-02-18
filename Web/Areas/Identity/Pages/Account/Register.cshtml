@@ -1,0 +1,110 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+  <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="pe-7s-close"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li>
+                            <div class="cart-img">
+                                <a href="#"><img src="/assets/images/cart/cart-1.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Stylish Swing Chair</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-img">
+                                <a href="#"><img src="/assets/images/cart/cart-2.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Modern Chairs</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>$170.00</span></h4>
+                    </div>
+                    <div class="cart-btn btn-hover">
+                        <a class="theme-color" href="cart.html">view cart</a>
+                    </div>
+                    <div class="checkout-btn btn-hover">
+                        <a class="theme-color" href="checkout.html">checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h2>Login - Register </h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="ti-angle-right"></i></li>
+                        <li>Register </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="breadcrumb-img-1">
+                <img src="/assets/images/banner/breadcrumb-1.png" alt="">
+            </div>
+            <div class="breadcrumb-img-2">
+                <img src="/assets/images/banner/breadcrumb-2.png" alt="">
+            </div>
+        </div>
+        <div class="login-register-area pb-100 pt-95">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 offset-lg-2">
+                        <div class="login-register-wrapper">
+                            <div class="login-register-tab-list nav">
+                            
+                                <a data-bs-toggle="tab" href="#lg2">
+                                    <h4> register </h4>
+                                </a>
+                            </div>
+                            <div class="tab-content">
+                             
+                                <div id="lg2" class="tab-pane active">
+                                    <div class="login-form-container">
+                                        <div class="login-register-form">
+                                            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <input asp-for="Input.FirstName" placeholder="FirstName" aria-required="true">
+                                                <input asp-for="Input.LastName" placeholder="LastName" aria-required="true">
+                                                <input asp-for="Input.Address" placeholder="Address" aria-required="true">
+                                                <input asp-for="Input.UserName" placeholder="Username" aria-required="true">
+                                                <input asp-for="Input.Email" placeholder="Email" type="email" aria-required="true" >
+                                                <input asp-for="Input.Password"  placeholder="Password" aria-required="true">
+                                                <input asp-for="Input.ConfirmPassword" placeholder="ConfirmPassword" aria-required="true" />
+                                                <div class="button-box btn-hover">
+                                                    <button id="registerSubmit" type="submit">Register</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

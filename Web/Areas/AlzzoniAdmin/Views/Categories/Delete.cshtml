@@ -1,0 +1,31 @@
+﻿@model Entities.Category
+@{
+    ViewData["Title"] = "Silinmə";
+    ViewData["Link"] = "Kateqoriyalar";
+}
+<h3 style="color:red" class="mb-5">Silmək istədiyinizə əminsiniz?</h3>
+<div>
+    <h4>Kateqoriya</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 mt-3">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class = "col-sm-10 mt-3">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt class = "col-sm-2 mt-3">
+            @Html.DisplayNameFor(model => model.IconUrl)
+        </dt>
+        <dd class = "col-sm-10 mt-3">
+            <i class="@Html.DisplayFor(model => model.IconUrl) fa-3x"></i>
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Siyahıya qayıt</a>
+    </form>
+</div>
+
