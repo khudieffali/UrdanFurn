@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BvzK9Q+bpRwEqVLPvLSsM1w+sJvdGH5zBBrXnBHTD9s=",
+  "Hash": "28EF9hb0oPLkXbXWEJvSGta9LC1bHh53h2TdB4CHngk=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -21029,6 +21029,23 @@
       "OriginalItemSpec": "wwwroot\\downloads\\04049637-79f8-4deb-b5ab-dd2ebc40f174123652965_100505961875255_1192301689523879993_n.jpg"
     },
     {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\06493729-75e1-49b2-8aad-049a650f975blovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/06493729-75e1-49b2-8aad-049a650f975blovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\06493729-75e1-49b2-8aad-049a650f975blovepik-contemporary-sofa-style-png-image_401002801_wh860.png"
+    },
+    {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\09049a71-de77-49bd-9dd2-02993e493059download.jfif",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -21352,6 +21369,23 @@
       "OriginalItemSpec": "wwwroot\\downloads\\79a2433a-fd4f-4741-b6b1-b66b4b477535download.jfif"
     },
     {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\8564497a-4204-431a-896b-57f62300cf09lovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/8564497a-4204-431a-896b-57f62300cf09lovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\8564497a-4204-431a-896b-57f62300cf09lovepik-contemporary-sofa-style-png-image_401002801_wh860.png"
+    },
+    {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\8f4ffe1f-36d3-4370-9583-b24d08247fc3themewar.com_wp_dgita_main_.png",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -21401,6 +21435,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\downloads\\985f0b65-b1c8-4ad3-9aea-33f243702abfdownload.jfif"
+    },
+    {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\aacec28d-9616-42fc-b780-d248221595cflovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/aacec28d-9616-42fc-b780-d248221595cflovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\aacec28d-9616-42fc-b780-d248221595cflovepik-contemporary-sofa-style-png-image_401002801_wh860.png"
     },
     {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\ade8487b-cad1-4cbf-a8c7-1803f1569a18download.jfif",
@@ -21556,6 +21607,23 @@
       "OriginalItemSpec": "wwwroot\\downloads\\ce138222-37d9-41f7-aa62-dfa72fa4e0bf132557z5f1e47d9.jpg"
     },
     {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\d89ee654-fe7c-49c6-b2ec-cf80e2e6c69dlovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/d89ee654-fe7c-49c6-b2ec-cf80e2e6c69dlovepik-contemporary-sofa-style-png-image_401002801_wh860.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\d89ee654-fe7c-49c6-b2ec-cf80e2e6c69dlovepik-contemporary-sofa-style-png-image_401002801_wh860.png"
+    },
+    {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\d93a8059-e3ec-442b-8c92-1482e3667043CIQARET PALL MALL NANO SILVER.jpg",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -21588,6 +21656,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\downloads\\da9f3907-fa7b-4fc4-9b08-a0c132a09fdd63d6dd8f026f239f6f645ae5118eecfe.jpg"
+    },
+    {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\dc98d6fa-cfc7-4ae7-8516-e713a8258dfeDaco_5599363 (1).png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/dc98d6fa-cfc7-4ae7-8516-e713a8258dfeDaco_5599363 (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\dc98d6fa-cfc7-4ae7-8516-e713a8258dfeDaco_5599363 (1).png"
     },
     {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\e7c770f4-1e1e-41ac-9eb2-a049eb514f47ANITA-2405-scaled.jpg",
@@ -21639,6 +21724,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\downloads\\eaffc7fc-f3aa-49b4-8e50-73d8bcce8f39sd-500x500.jpg"
+    },
+    {
+      "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\f3190103-830f-49e5-9184-217295a1b040pngfind.com-sofa-png-2903121.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "downloads/f3190103-830f-49e5-9184-217295a1b040pngfind.com-sofa-png-2903121.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\f3190103-830f-49e5-9184-217295a1b040pngfind.com-sofa-png-2903121.png"
     },
     {
       "Identity": "D:\\repos\\UrdanFurn\\Web\\wwwroot\\downloads\\f466dc48-6e34-460a-b2d8-dd027f423f571573824964.rozita-spalnaya-mebel-compressor.jpg",

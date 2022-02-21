@@ -11,17 +11,23 @@ namespace Web.Controllers
         private readonly ProductManager _productManager;
         private readonly UserManager<User> _userManager;
         private readonly OrderManager _orderManager;
+        private readonly OrderItemManager _orderItemManager;
 
-        public OrderController(ProductManager productManager, UserManager<User> userManager, OrderManager orderManager)
+        public OrderController(ProductManager productManager, UserManager<User> userManager, OrderManager orderManager, OrderItemManager orderItemManager)
         {
             _productManager = productManager;
             _userManager = userManager;
             _orderManager = orderManager;
+            _orderItemManager = orderItemManager;
         }
 
         public IActionResult Index()
         {
-            return View();
+            OrderVm vm = new()
+            {
+                ShopList = _orderItemManager.GetAll(),
+            };
+            return View(vm);
         }
         public async Task<IActionResult> CheckOut()
         {

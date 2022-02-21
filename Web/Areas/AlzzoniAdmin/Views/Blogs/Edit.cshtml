@@ -1,0 +1,58 @@
+﻿@model Entities.Blog
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="BlogPhoto" class="form-control" type="hidden" />
+            <div class="form-group">
+                <label asp-for="BlogTitle" class="control-label"></label>
+                <input asp-for="BlogTitle" class="form-control" />
+                <span asp-validation-for="BlogTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPhoto" class="control-label"></label>
+                <input name="newBlogPhoto" class="form-control" type="file" />
+                <span asp-validation-for="BlogPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogDate" class="control-label"></label>
+                <input asp-for="BlogDate" class="form-control" />
+                <span asp-validation-for="BlogDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogCategoryID" class="control-label"></label>
+                <select asp-for="BlogCategoryID" class="form-control">
+                    <option value=0 disabled selected>...Kateqoriya Seçin...</option>
+                    @foreach (var item in ViewBag.BlogCatList as List<Entities.BlogCategory>)
+                    {
+                        <option value="@item.Id">@item.BlogCategoryName</option>
+                    }
+                </select>
+                <span asp-validation-for="BlogCategoryID" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

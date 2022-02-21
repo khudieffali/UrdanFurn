@@ -12,6 +12,15 @@ namespace Web.Controllers
         {
             _blogManager = blogManager;
         }
+        public IActionResult Blog()
+        {
+            BlogVm vm = new()
+            {
+                BlogList = _blogManager.GetBlogs()
+            };
+            if(vm==null) return NotFound();
+            return View(vm);
+        }
 
         public IActionResult BlogDetails(int? id)
         {

@@ -26,5 +26,25 @@ namespace Services
             var selectedBlog=_context.Blogs.Include(x=>x.BlogCategory).Where(x=>!x.IsDeleted).FirstOrDefault(x=>x.Id == id);
             return selectedBlog;
         }
+        public void Add(Blog blog)
+        {
+            _context.Blogs.Add(blog);
+            blog.BlogDate = DateTime.Now;
+            _context.SaveChanges();
+        }
+        public void Update(Blog blog)
+        {
+            _context.Blogs.Update(blog);
+            _context.SaveChanges();
+        }
+        public void Delete(Blog blog)
+        {
+            blog.IsDeleted = true;
+            _context.SaveChanges();
+        }
+        public bool BlogExists(int id)
+        {
+            return _context.Blogs.Any(e => e.Id == id);
+        }
     }
 }

@@ -1,4 +1,4 @@
-using DataAccess;
+﻿using DataAccess;
 using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -17,6 +19,8 @@ builder.Services.AddScoped<CategoryManager>();
 builder.Services.AddScoped<PictureManager>();
 builder.Services.AddScoped<OrderManager>();
 builder.Services.AddScoped<BlogManager>();
+builder.Services.AddScoped<OrderItemManager>();
+builder.Services.AddScoped<BlogCategoryManager>();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();

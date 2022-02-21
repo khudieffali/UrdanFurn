@@ -27,7 +27,7 @@
                                         <h1 style="color:white;" class="animated">@item.Name</h1>
                                         <div class="slider-btn btn-hover">
                                             <a class="btn animated" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">
-                                                Shop Now <i class=" ti-arrow-right "></i>
+                                                İndi Al <i class=" ti-arrow-right "></i>
                                             </a>
                                         </div>
                                     </div>
@@ -56,14 +56,14 @@
                         <h5>new arrival</h5>
                         <h3>Office Chair</h3>
                         <div class="banner-btn">
-                            <a href="product-details.html">Shop Now</a>
+                            <a asp-controller="Product" asp-action="Details">İndi Al</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="400">
-                    <a href="product-details.html"><img src="/assets/images/banner/banner-2.png" alt=""></a>
+                    <a asp-controller="Products" asp-action="Details"><img src="/assets/images/banner/banner-2.png" alt=""></a>
                     <div class="banner-content-1">
                         <h5>new arrival</h5>
                         <h3>Hanging Chair</h3>
@@ -75,7 +75,7 @@
             </div>
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="600">
-                    <a href="product-details.html"><img src="/assets/images/banner/banner-3.png" alt=""></a>
+                    <a asp-controller="Product" asp-action="Details"> <img src="/assets/images/banner/banner-3.png" alt=""></a>
                     <div class="banner-content-1">
                         <h5>new arrival</h5>
                         <h3>Folding Chair</h3>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="product-content">
-                            <h3><a href="product-details.html">@item.Name</a></h3>
+                            <h3><a asp-controller="Product" asp-action="Details">@item.Name</a></h3>
                             <div class="product-price">
                                 <span class="old-price">$@item.Price </span>
                                 <span class="new-price">$@item.Discount </span>
@@ -148,13 +148,13 @@
         <div class="row">
             <div class="col-lg-7 col-md-7">
                 <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="200">
-                    <a href="product-details.html"><img src="/assets/images/banner/banner-4.png" alt=""></a>
+                    <a asp-controller="Product" asp-action="Details"><img src="/assets/images/banner/banner-4.png" alt=""></a>
                     <div class="banner-content-2">
                         <span>Sale 30%</span>
                         <h2>New Furniture</h2>
                         <p>Lorem ipsum dolor sit amet consecte adipisicing elit sed do</p>
                         <div class="btn-style-2 btn-hover">
-                            <a href="product-details.html" class="btn">
+                            <a asp-controller="Product" asp-action="Details class="btn">
                                 Shop Now
                             </a>
                         </div>
@@ -163,7 +163,7 @@
             </div>
             <div class="col-lg-5 col-md-5">
                 <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="400">
-                    <a href="product-details.html"><img src="/assets/images/banner/banner-5.png" alt=""></a>
+                    <a asp-controller="Product" asp-action="Details"><img src="/assets/images/banner/banner-5.png" alt=""></a>
                     <div class="banner-content-3">
                         <h3>Up To 30% <img src="/assets/images/icon-img/sale.png" alt=""> Every Item</h3>
                     </div>
@@ -227,7 +227,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="home-single-product-img" data-aos="fade-up" data-aos-delay="200">
-                    <a href="product-details.html"><img src="/assets/images/product/single-product.png" alt=""></a>
+                    <a asp-controller="Product" asp-action="Details"><img src="/assets/images/product/single-product.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -269,7 +269,7 @@
                 <h2>New Dining <br>Chair Set</h2>
                 <h3>Up To 30% Off</h3>
                 <div class="btn-style-2 btn-hover">
-                    <a href="product-details.html" class="btn">
+                    <a asp-controller="Product" asp-action="Details class="btn">
                         Shop Now
                     </a>
                 </div>
@@ -295,7 +295,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                             <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
+                                <a asp-controller="Product" asp-action="Details">
                                     <img src="/assets/images/product/product-5.png" alt="">
                                 </a>
                                 <div class="product-badge badge-top badge-right badge-pink">

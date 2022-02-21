@@ -18,7 +18,7 @@ namespace Services
         }
         public List<Order> GetOrders()
         {
-            return _context.Orders.Where(x=>!x.IsDeleted).ToList();
+            return _context.Orders.Where(x=>!x.IsDeleted).OrderByDescending(x=>x.OrderDate).ToList();
         }
         public void AddOrder(Order order)
         {

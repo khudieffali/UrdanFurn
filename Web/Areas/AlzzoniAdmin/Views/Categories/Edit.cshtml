@@ -41,9 +41,10 @@
         $(".category-icon i").click(function(){
             $(".category-icon i").removeClass("active-icon")
           const catIcon=$(this).attr("class")
-          $("#IconUrl").val(catIkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkcon)
+          $("#IconUrl").val(catIcon)
           $(this).addClass("active-icon")
-          const oldIcon=$("#oldICon i").attr("class")
+          const oldIcon=$("#oldIcon i").attr("class")
+          console.log(oldIcon)
           $("#oldIcon i").removeClass(oldIcon);
           $("#oldIcon i").addClass(catIcon+" "+"fa-3x");
         })
