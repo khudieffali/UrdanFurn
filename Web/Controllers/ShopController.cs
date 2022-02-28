@@ -6,18 +6,23 @@ namespace Web.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly ProductManager _productManeger;
+        private readonly ProductManager _productManager;
+        private readonly CategoryManager _categoryManager;
 
-        public ShopController(ProductManager productManeger)
+        public ShopController(ProductManager productManager, CategoryManager categoryManager)
         {
-            _productManeger = productManeger;
+            _productManager = productManager;
+            _categoryManager = categoryManager;
         }
 
-        public IActionResult Index()
+
+        public IActionResult Index(string? s,int? id)
         {
-            ShopVm vm = new() 
+            ShopVm vm = new()
             {
-                Products =_productManeger.GetProducts(),
+                Products = _productManager.GetProducts(),
+                SearchProduct = _productManager.SearchProduct(s, id),
+                Categories = _categoryManager.GetCategories(),
             };
 
             return View(vm);

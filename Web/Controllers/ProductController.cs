@@ -23,7 +23,15 @@ namespace Web.Controllers
             ProductDetailsVm vm = new()
             {
                 Product = product,
-              
+                RelatedProducts=_productManager.RelatedProducts(product.CategoryId,id.Value),
+            };
+            return View(vm);
+        }
+        public IActionResult Search(string? s, int? categoryId)
+        {
+            ProductSearchVm vm = new()
+            {
+                Products = _productManager.SearchProduct(s, categoryId),
             };
             return View(vm);
         }

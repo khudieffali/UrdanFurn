@@ -8,5 +8,6 @@ namespace Web.ViewModels
         public List<Product> Sliders { get; set; }
         public List<Product> ProductList { get; set; }
         public List<Blog> BlogList { get; set; }
+        public List<Product> FeaturedProducts { get; set; }
     }
 }

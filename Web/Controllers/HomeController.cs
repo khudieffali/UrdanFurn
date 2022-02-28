@@ -27,6 +27,7 @@ namespace Web.Controllers
                 ProductList = _productManager.GetProducts(),
                 Sliders = _productManager.GetSliders(),
                 BlogList=_blogManager.GetBlogs(),
+                FeaturedProducts=_productManager.FetauredProducts(),
             };
            
             return View(vm);

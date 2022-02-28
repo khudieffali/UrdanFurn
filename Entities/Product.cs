@@ -27,6 +27,7 @@ namespace Entities
         public DateTime? ModifiedOn { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsSlider { get; set; }
+        public bool IsFeatured { get; set; }
         public int CategoryId { get; set; }
         public virtual Category? Category  { get; set; }
         public virtual List<ProductPicture>? ProductPictures { get; set; }

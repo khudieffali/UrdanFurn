@@ -37,7 +37,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("BlogPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BlogTitle")
@@ -252,6 +251,9 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsSlider")
                         .HasColumnType("bit");
 
@@ -288,10 +290,11 @@ namespace DataAccess.Migrations
                             Discount = 0m,
                             InStock = 5,
                             IsDeleted = false,
+                            IsFeatured = false,
                             IsSlider = false,
                             Name = "Sultan",
                             Price = 1700m,
-                            PublishDate = new DateTime(2022, 2, 17, 11, 49, 32, 748, DateTimeKind.Local).AddTicks(5824),
+                            PublishDate = new DateTime(2022, 2, 21, 17, 31, 12, 286, DateTimeKind.Local).AddTicks(8935),
                             SKU = "dscscsdecfedcsf4845cd"
                         });
                 });
@@ -407,7 +410,7 @@ namespace DataAccess.Migrations
                             FirstName = "Əli",
                             LastName = "Xudiyev",
                             LockoutEnabled = true,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2022, 2, 17, 11, 49, 32, 748, DateTimeKind.Unspecified).AddTicks(5566), new TimeSpan(0, 4, 0, 0, 0)),
+                            LockoutEnd = new DateTimeOffset(new DateTime(2022, 2, 21, 17, 31, 12, 286, DateTimeKind.Unspecified).AddTicks(8475), new TimeSpan(0, 4, 0, 0, 0)),
                             NormalizedEmail = "ALI.XUDIYEV98@GMAIL.COM",
                             NormalizedUserName = "ALI.XUDIYEV98@GMAIL.COM",
                             PhoneNumber = "+994-55-305-32-32",

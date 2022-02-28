@@ -15,6 +15,7 @@
     <!-- Start css -->
     <!-- Switchery css -->
     <link href="/adminpanel/plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet">
     <!-- Apex css -->
     <link href="/adminpanel/plugins/apexcharts/apexcharts.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -106,12 +107,19 @@
                             </a>
                             
                         </li>
+                     
                         <li>
                             <a asp-controller="Blogs" asp-action="Index">
                               <img src="/adminpanel/images/svg-icon/apps.svg" class="img-fluid" alt="apps"><span>Bloqlar</span><i class="feather icon-chevron-right pull-right"></i>
                             </a>
                           
-                        </li>                                      
+                        </li> 
+                            <li>
+                            <a asp-controller="BlogCategories" asp-action="Index" >
+                                <img src="/adminpanel/images/svg-icon/advanced.svg" class="img-fluid" alt="advanced"><span>Bloq Kateqoriyalar</span><i class="feather icon-chevron-right pull-right"></i>
+                            </a>
+                            
+                        </li>
                     </ul>
                 </div>
                 <!-- End Navigationbar -->
@@ -331,6 +339,7 @@
     <script src="/adminpanel/js/custom/custom-dashboard.js"></script>
     <!-- Core js -->
     <script src="/adminpanel/js/core.js"></script>
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     @await RenderSectionAsync("Script",required:false);
     <!-- End js -->
 </body>

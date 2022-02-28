@@ -49,42 +49,25 @@
 <div class="banner-area pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
+            <h3 >Önə Çıxarılanlar</h3>
+            @foreach (var featured in Model.FeaturedProducts)
+            {
+                string photo=PictureHelper.getCoverPhoto(featured.CoverPhotoId,featured.ProductPictures);
+                  <div class="col-lg-4 col-md-6 col-12">
                 <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="200">
-                    <a href="product-details.html"><img src="/assets/images/banner/banner-1.png" alt=""></a>
+                    <a asp-controller="Product" asp-action="Details"><img src="@photo" alt=""></a>
                     <div class="banner-content-1">
-                        <h5>new arrival</h5>
-                        <h3>Office Chair</h3>
+                        <h5>@featured.Category.CategoryName</h5>
+                        <h3>@featured.Name</h3>
                         <div class="banner-btn">
                             <a asp-controller="Product" asp-action="Details">İndi Al</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="400">
-                    <a asp-controller="Products" asp-action="Details"><img src="/assets/images/banner/banner-2.png" alt=""></a>
-                    <div class="banner-content-1">
-                        <h5>new arrival</h5>
-                        <h3>Hanging Chair</h3>
-                        <div class="banner-btn">
-                            <a href="product-details.html">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="600">
-                    <a asp-controller="Product" asp-action="Details"> <img src="/assets/images/banner/banner-3.png" alt=""></a>
-                    <div class="banner-content-1">
-                        <h5>new arrival</h5>
-                        <h3>Folding Chair</h3>
-                        <div class="banner-btn">
-                            <a href="product-details.html">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
+          
+          
         </div>
     </div>
 </div>
@@ -122,7 +105,7 @@
                                 </button>
                             </div>
                             <div class="product-action-2-wrap">
-                                <button asp-controller="Cart" class="btn-cart product-action-btn-2" title="Add To Cart" pro-id="@item.Id"><i class="pe-7s-cart"></i> Add to cart</button>
+                                <button asp-controller="Cart" class="btn-cart product-action-btn-2" title="Add To Cart" pro-id="@item.Id"><i class="pe-7s-cart"></i>Səbətə At</button>
                             </div>
                         </div>
                         <div class="product-content">
@@ -155,7 +138,7 @@
                         <p>Lorem ipsum dolor sit amet consecte adipisicing elit sed do</p>
                         <div class="btn-style-2 btn-hover">
                             <a asp-controller="Product" asp-action="Details class="btn">
-                                Shop Now
+                               İndi Al
                             </a>
                         </div>
                     </div>
@@ -181,8 +164,8 @@
                         <img src="/assets/images/icon-img/car.png" alt="">
                     </div>
                     <div class="service-content">
-                        <h3>Free Shipping</h3>
-                        <p>Free shipping on all order</p>
+                        <h3>Pulsuz Çatdırılma</h3>
+                        <p>Bütün sifarişlərdə pulsuz çatdırılma</p>
                     </div>
                 </div>
             </div>
@@ -192,8 +175,8 @@
                         <img src="/assets/images/icon-img/time.png" alt="">
                     </div>
                     <div class="service-content">
-                        <h3>Support 24/7</h3>
-                        <p>Support 24 hours a day</p>
+                        <h3>24/7 Dəstək</h3>
+                        <p>24 Saat Dəstək</p>
                     </div>
                 </div>
             </div>
@@ -203,8 +186,8 @@
                         <img src="/assets/images/icon-img/dollar.png" alt="">
                     </div>
                     <div class="service-content">
-                        <h3>Money Return</h3>
-                        <p>Back Guarantee Under </p>
+                        <h3>Pulun qaytarılması</h3>
+                        <p>Geri Qaytarılma Zəmanəti</p>
                     </div>
                 </div>
             </div>
@@ -214,15 +197,15 @@
                         <img src="/assets/images/icon-img/discount.png" alt="">
                     </div>
                     <div class="service-content">
-                        <h3>Order Discount</h3>
-                        <p>Onevery order over $150</p>
+                        <h3>Sifariş endirimi</h3>
+                        <p>Hər bir sifariş 150 dollardan yuxarı</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="product-area pb-100">
+@*<div class="product-area pb-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6">
@@ -261,7 +244,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <div class="banner-area pb-95" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
         <div class="bg-img bg-padding-1" style="background-image:url(assets/images/bg/bg-1.png)">
@@ -269,7 +252,7 @@
                 <h2>New Dining <br>Chair Set</h2>
                 <h3>Up To 30% Off</h3>
                 <div class="btn-style-2 btn-hover">
-                    <a asp-controller="Product" asp-action="Details class="btn">
+                    <a  asp-controller="Product" asp-action="Details  class="btn">
                         Shop Now
                     </a>
                 </div>
@@ -281,25 +264,49 @@
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
             <div class="section-title-2" data-aos="fade-up" data-aos-delay="200">
-                <h2>Hot Products</h2>
+                <h2>Məhsullar</h2>
             </div>
             <div class="tab-style-1 nav" data-aos="fade-up" data-aos-delay="400">
-                <a class="active" href="#pro-1" data-bs-toggle="tab">New Arrivals </a>
-                <a href="#pro-2" data-bs-toggle="tab" class=""> Best Sellers </a>
-                <a href="#pro-3" data-bs-toggle="tab" class=""> Sale Items </a>
+                <a class="active" href="#pro-1" data-bs-toggle="tab">Yeni Məhsullar </a>
+                <a href="#pro-2" data-bs-toggle="tab" class=""> Çox Satılanlar </a>
+                <a href="#pro-3" data-bs-toggle="tab" class="">Endirimdə Olanlar </a>
             </div>
         </div>
         <div class="tab-content jump">
             <div id="pro-1" class="tab-pane active">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    @{
+                        var percentage = 0;
+                    }
+                    @foreach (var newArrival in Model.ProductList)
+                    {
+
+                        string coverPhoto = PictureHelper.getCoverPhoto(newArrival.CoverPhotoId, newArrival.ProductPictures);
+                        if(newArrival.Discount != null)
+                        {
+                           percentage = Convert.ToInt32(((newArrival.Price-newArrival.Discount.Value) / newArrival.Price) * 100);
+                        }else{
+                           percentage = 0;
+                        }
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                             <div class="product-img img-zoom mb-25">
-                                <a asp-controller="Product" asp-action="Details">
-                                    <img src="/assets/images/product/product-5.png" alt="">
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@newArrival.Id">
+                                    <img src="@coverPhoto" alt="">
                                 </a>
                                 <div class="product-badge badge-top badge-right badge-pink">
-                                    <span>-10%</span>
+                                   
+                                            @if (newArrival.Discount != 0 && newArrival.Discount !=null)
+                                            {
+                                            <span>-@percentage%</span>
+                                            }
+
+                                            else
+                                            {
+                                               <span></span> ;
+                                            }
+                                        
                                 </div>
                                 <div class="product-action-wrap">
                                     <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
@@ -308,198 +315,29 @@
                                     </button>
                                 </div>
                                 <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
+                                    <button asp-controller="Cart" class="btn-cart product-action-btn-2" title="Add To Cart" pro-id="@newArrival.Id"><i class="pe-7s-cart"></i> Səbətə At</button>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Interior moderno render</a></h3>
+                                <h3><a asp-controller="Product" asp-action="Details" asp-route-id="@newArrival.Id">@newArrival.Name</a></h3>
                                 <div class="product-price">
-                                    <span class="old-price">$25.89 </span>
-                                    <span class="new-price">$20.25 </span>
+                                        @if(newArrival.Discount==null || newArrival.Discount== 0)
+                                        {
+                                            <span class="new-price">$@newArrival.Price</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="old-price">$@newArrival.Price </span>
+                                            <span class="new-price">$@newArrival.Discount </span>
+                                        }
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="400">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-6.png" alt="">
-                                </a>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Stylish Dining Chair</a></h3>
-                                <div class="product-price">
-                                    <span>$50.25 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="600">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-7.png" alt="">
-                                </a>
-                                <div class="product-badge badge-top badge-right badge-pink">
-                                    <span>-10%</span>
-                                </div>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Round Standard Chair</a></h3>
-                                <div class="product-price">
-                                    <span class="old-price">$45.00 </span>
-                                    <span class="new-price">$40.00 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="800">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-4.png" alt="">
-                                </a>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Stylish Swing Chair</a></h3>
-                                <div class="product-price">
-                                    <span>$30.25 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-8.png" alt="">
-                                </a>
-                                <div class="product-badge badge-top badge-right badge-pink">
-                                    <span>-10%</span>
-                                </div>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Modern Swivel Chair</a></h3>
-                                <div class="product-price">
-                                    <span class="old-price">$25.89 </span>
-                                    <span class="new-price">$20.25 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="400">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-2.png" alt="">
-                                </a>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">New Modern Sofa Set</a></h3>
-                                <div class="product-price">
-                                    <span>$50.25 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="600">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-3.png" alt="">
-                                </a>
-                                <div class="product-badge badge-top badge-right badge-pink">
-                                    <span>-10%</span>
-                                </div>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Easy Modern Chair</a></h3>
-                                <div class="product-price">
-                                    <span class="old-price">$45.00 </span>
-                                    <span class="new-price">$40.00 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="800">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="product-details.html">
-                                    <img src="/assets/images/product/product-9.png" alt="">
-                                </a>
-                                <div class="product-action-wrap">
-                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="pe-7s-look"></i>
-                                    </button>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Modern Lounge Chairs</a></h3>
-                                <div class="product-price">
-                                    <span>$30.25 </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
+                    }
+                   
+                
                 </div>
             </div>
             <div id="pro-2" class="tab-pane">
@@ -994,7 +832,7 @@
                         </div>
                         <h3><a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@blog.Id">@blog.BlogTitle</a></h3>
                         <div class="blog-btn">
-                            <a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@blog.Id">Read More</a>
+                            <a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@blog.Id">Ətraflı Oxu...</a>
                         </div>
                     </div>
                 </div>

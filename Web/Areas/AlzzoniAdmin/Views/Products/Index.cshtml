@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create" style="color:blue;font-size:20px">Yarat +</a>
 </p>
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
@@ -73,3 +73,10 @@
 }
     </tbody>
 </table>
+@section Script{
+    <script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+     } );
+    </script>
+}

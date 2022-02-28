@@ -72,7 +72,12 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsSlider" /> @Html.DisplayNameFor(model => model.IsSlider)
+                    <input class="form-check-input" asp-for="IsSlider"  /> @Html.DisplayNameFor(model => model.IsSlider)
+                </label>
+            </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input asp-for="IsFeatured" class="form-check-input" value="true" /> @Html.DisplayNameFor(model => model.IsFeatured)
                 </label>
             </div>
             <div class="form-group">
@@ -148,7 +153,7 @@
             })
         function removePicture(element){
            let pictureName=$(element).attr("myFile")
-           pictureList=pictureList.filter(c=>c.name!=pictureName);
+           pictureList=pictureList.filter(c=>c.name!=pictureName); 
              $(".label-photo span").text(pictureList.length)
              $("#pictureInput").val("")
             $(element).parents(".itemPicture").remove();

@@ -10,7 +10,7 @@ namespace Entities
     public class Blog:BaseEntity
     {
         public string  BlogTitle { get; set; }
-        public string BlogPhoto { get; set; }
+        public string? BlogPhoto { get; set; }
         public string Description { get; set; }
         public DateTime? BlogDate { get; set; }
         public bool IsDeleted { get; set; }

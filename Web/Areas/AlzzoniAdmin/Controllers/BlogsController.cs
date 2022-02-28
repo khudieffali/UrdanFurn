@@ -62,7 +62,7 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
         public IActionResult Create([Bind("BlogTitle,BlogPhoto,Description,BlogDate,BlogCategoryID")] Blog blog,IFormFile BlogPhoto)
         {
             ViewBag.BlogCatList = _blogCategoryManager.GetBlogCategories();
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 if(BlogPhoto != null)
                 {
@@ -101,7 +101,7 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
             ViewBag.BlogCatList = _blogCategoryManager.GetBlogCategories();
             if (id != blog.Id)
                 return NotFound();
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

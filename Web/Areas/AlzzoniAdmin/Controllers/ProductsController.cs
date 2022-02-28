@@ -59,7 +59,7 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Name,Description,Price,Discount,InStock,PhotoUrl,SKU,Barcode,PublishDate,ModifiedOn,IsDeleted,IsSlider,CategoryId,Id")] Product product,IFormFile[] PictureUrlss,int? thumbnailPictureId)
+        public IActionResult Create([Bind("Name,Description,Price,Discount,InStock,PhotoUrl,SKU,Barcode,PublishDate,ModifiedOn,IsDeleted,IsSlider,IsFeatured,CategoryId,Id")] Product product,IFormFile[] PictureUrlss,int? thumbnailPictureId)
         {
             ViewBag.catList = _categoryManager.GetCategories();
             if (ModelState.IsValid)
@@ -77,10 +77,16 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
                         Picture pic = new Picture() { Url = "/downloads/" + photoname };
                         _pictureManager.AddPicture(pic);
                         product.ProductPictures.Add(new ProductPicture() { ProductId=product.Id,PictureId=pic.Id});
-                        var picFirstId = product.ProductPictures.First().PictureId;
-                        product.CoverPhotoId = product.ProductPictures != null ? product.ProductPictures[thumbnailPictureId.HasValue?thumbnailPictureId.Value:picFirstId].PictureId : null ;
+
                     }
                 }
+                int picFirstId = product.ProductPictures.First().PictureId;
+                product.CoverPhotoId = product.ProductPictures != null ?
+                    product.ProductPictures[
+                        thumbnailPictureId.HasValue ?
+                        thumbnailPictureId.Value :
+                        0].PictureId
+                        : null;
                 _productManager.Add(product);
                 return RedirectToAction(nameof(Index));
             }
