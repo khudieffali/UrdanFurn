@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,16 @@ namespace Services
         {
             _context.Add(picture);
             _context.SaveChanges();
+        }
+        public void RemovePicture(List<int> picIds)
+        {
+            var oldPicture=GetProductIds(picIds);
+            _context.ProdductPictures.RemoveRange(oldPicture);
+            _context.SaveChanges();
+        }
+        public List<ProductPicture> GetProductIds(List<int> picIds)
+        {
+            return _context.ProdductPictures.Include(x=>x.Picture).Where(x=>picIds.Contains(x.PictureId)).ToList();
         }
     }
 }

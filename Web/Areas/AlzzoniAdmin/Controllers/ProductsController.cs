@@ -1,5 +1,4 @@
-﻿#nullable disable
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -108,7 +107,7 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
         [HttpPost]
         
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Name,Description,Price,Discount,InStock,PhotoUrl,SKU,Barcode,PublishDate,ModifiedOn,IsDeleted,IsSlider,CategoryId,Id")] Product product,IFormFile newPhotos)
+        public IActionResult Edit(int id, Product product, IFormFile[] PictureUrlss,string oldPicture, string? removePicturesIds,int? thumbnailPictureId)
         {
             if (id != product.Id)
                 return NotFound();
@@ -117,20 +116,45 @@ namespace Web.Areas.AlzzoniAdmin.Controllers
             {
                 try
                 {
-                    //foreach (var item in newPhotos)
-                    //{
-                    //    if (newPhotos != null)
-                    //    {
-                    //        //string photoname = Guid.NewGuid() + newPhotos.FileName;
-                    //        //string rootFile = Path.Combine(_webHost.WebRootPath, "downloads");
-                    //        //string mainFile = Path.Combine(rootFile, photoname);
-                    //        //using FileStream stream = new(mainFile, FileMode.Create);
-                    //        //newPhotos.CopyTo(stream);
+                    List<int> rmvPicIds=new List<int>();
+                    if(removePicturesIds != null)
+                    {
+                          rmvPicIds = removePicturesIds.Split("-")
+                                            .Select(x => int.Parse(x)).ToList();
+                        _pictureManager.RemovePicture(rmvPicIds);
+                        product.ProductPictures = new List<ProductPicture>();
+                        product.ProductPictures = product.ProductPictures.Where(x => !rmvPicIds.Contains(x.PictureId)).ToList();
+                    }
+                   
+                    List<int> oldPictureIds = oldPicture.Split("-")
+                      .Select(x => int.Parse(x))
+                       .Where(x => !rmvPicIds.Contains(x)).ToList();
+                   
+                    var oldPicturewithoutRemove = _pictureManager.GetProductIds(oldPictureIds);
+                    product.ProductPictures = oldPicturewithoutRemove.Count > 0 ? oldPicturewithoutRemove : new List<ProductPicture>();
+                    foreach (var PhotoUrl in PictureUrlss)
+                    {
+                        if (PhotoUrl != null)
+                        {
+                            string photoname = Guid.NewGuid() + PhotoUrl.FileName;
+                            string rootFile = Path.Combine(_webHost.WebRootPath, "downloads");
+                            string mainFile = Path.Combine(rootFile, photoname);
+                            using FileStream stream = new(mainFile, FileMode.Create);
+                            PhotoUrl.CopyTo(stream);
+                            Picture pic = new Picture() { Url = "/downloads/" + photoname };
+                            _pictureManager.AddPicture(pic);
+                            product.ProductPictures.Add(new ProductPicture() { ProductId = product.Id, PictureId = pic.Id });
 
-                    //        //product.PhotoUrl = "/downloads/" + photoname;
-                    //    }
-                    //}
-                  
+                        }
+                    }
+                    int picFirstId = product.ProductPictures.First().PictureId;
+                    product.CoverPhotoId = product.ProductPictures != null ?
+                        product.ProductPictures[
+                            thumbnailPictureId.HasValue ?
+                            thumbnailPictureId.Value :
+                            0].PictureId
+                            : null;
+
                     _productManager.Update(product);
                 }
                 catch (DbUpdateConcurrencyException)

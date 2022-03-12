@@ -16,6 +16,8 @@ namespace Services
         {
             _context = context;
         }
+
+        
         public List<Category> GetCategories()
         {
             return _context.Categories.Where(x=>!x.IsDeleted).ToList();

@@ -1,7 +1,7 @@
 ﻿@model Entities.Product
 
 @{
-    ViewData["Title"] = "Dəyi";
+    ViewData["Title"] = "Dəyiş";
 }
 <style>
     .label-photo {
@@ -25,9 +25,17 @@
 <hr />
 <div class="row">
     <div class="col-md-9">
-        <form method="post" asp-action="Edit" enctype="multipart/form-data">
+        <form method="post" asp-action="Edit" enctype="multipart/form-data" id="EditForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<input type="hidden" asp-for="PhotoUrl" />*@
+            <input asp-for="ProductPictures" type="hidden" />
+            @{
+                string[] arr = Model.ProductPictures != null ? Model.ProductPictures.Select(x => x.PictureId.ToString()).ToArray() : null;
+                string picIds = @String.Join("-", arr);
+            }
+           <input name="oldPicture" type="hidden" value="@picIds" />
+           <input type="hidden" asp-for="PublishDate" />
+           <input type="hidden" asp-for="ModifiedOn" />
+          
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -57,25 +65,28 @@
                 <label for="pictureInput" class="control-label label-photo">Select Photo (<span>0</span>) </label>
                 <br />
                 <input class="d-none" id="pictureInput" type="file" multiple name="PictureUrlss" />
+                <input type="hidden" name="removePicturesIds" id="removePicturesIds" />
                 <div id="pictureList" class="d-flex flex-wrap">
+                    @{
+                        int picCount = 0;
+                    }
                     @if (Model.ProductPictures != null)
                     {
-                        int picCount = 0;
                         foreach (var pic in Model.ProductPictures)
                         {
                             <div class="itemPicture col-lg-3 col-sm-6">
                                 <img class="img-fluid img-thumbnail" src="@pic.Picture.Url" />
                                 <br />
-                                <!input @(Model.CoverPhotoId==pic.PictureId?"checked":"") class="thumbRadio" value="@pic.PictureId" type="radio" name="thumbnailPictureId" /> Is Cover?
+                                <!input @(Model.CoverPhotoId==pic.PictureId? "checked" : "") class="thumbRadio" value="@picCount" type="radio" name="thumbnailPictureId" /> Is Cover?
                                 <br />
-                                <button class="btn btn-danger btn-remove" myFile="@picCount" type="button" onclick=removePicture(this)>
+                                <button class="btn btn-danger btn-remove" picture-id="@pic.PictureId" myFile="" type="button" onclick="removePicture(this)">
                                     Remove Picture
                                 </button>
-
                             </div>
                             picCount++;
                         }
                     }
+                    <input type="hidden" id="picCount" value="@picCount" />
 
                 </div>
             </div>
@@ -125,7 +136,7 @@
     <br />
     <input class="thumbRadio" type="radio" name="thumbnailPictureId" /> Is Cover?
     <br />
-    <button class="btn btn-danger btn-remove" myFile="" type="button" onclick=removePicture(this)>
+    <button class="btn btn-danger btn-remove" myFile="" type="button" onclick="removePicture(this)">
         Remove Picture
     </button>
 
@@ -147,34 +158,46 @@
                }  
                reader.readAsDataURL(pic);
                pictureItem.find(".btn-remove").attr("myFile",pic.name)
-               pictureItem.find(".thumbRadio").val(i)
+               pictureItem.find(".thumbRadio").val(parseFloat($("#picCount").val())+i)
                 pictureItem.removeClass("d-none")
                $("#pictureList").append(pictureItem)
                }
                $(".label-photo span").text(pictureList.length)
             })
-            $("#CreateForm").submit(function(e){
+            $("#EditForm").submit(function(e){
                 e.preventDefault
                 var form_data=new FormData(this);
                 for(let pic of pictureList){
                     form_data.append("PictureUrlss",pic)
                 }   
                 $.ajax({
-                    url:"/AlzzoniAdmin/Products/Create",
+                    url:"/AlzzoniAdmin/Products/Edit",
                     data:form_data,
                     dataType:'json',
                     processData:false,
                     contentType:false,
                     success:function(){
+                       alert("Mehsul ugurla deyisdirildi")
                     }
                 })
             })
+            let removePictureIdList=[];
         function removePicture(element){
-           let pictureName=$(element).attr("myFile")
-           pictureList=pictureList.filter(c=>c.name!=pictureName);
+            let picId=$(element).attr("picture-id")
+            if(typeof picId!="undefined"){
+                removePictureIdList.push(picId);
+                $("#removePicturesIds").val(removePictureIdList.join("-"))
+            }
+           let pictureName= $(element).attr("myFile")
+             pictureList=pictureList.filter(c=>c.name!==pictureName);
              $(".label-photo span").text(pictureList.length)
              $("#pictureInput").val("")
-            $(element).parents(".itemPicture").remove();
+             $(element).parents(".itemPicture").remove();
+             let count =0
+             $(".itemPicture .thumRadio").each((i,element)=>{
+              $(element).val(count)
+                count++
+            })
          }
 </script>
 }
